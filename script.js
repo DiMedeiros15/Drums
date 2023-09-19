@@ -5,7 +5,7 @@ document.body.addEventListener('keyup', (event)=>{
 document.querySelector(".composer button").addEventListener('click', () =>{
 const song = document.querySelector("#input").value;
 
-    if (song !== ''){
+    if (song){
         let songArray = song.split('')
         playComposition(songArray)
     }
@@ -15,7 +15,8 @@ function playSound(sound){
     let audio = document.getElementById(`s_${sound}`)
     let active = document.querySelector(`div[data-key="${sound}"]`)
 
-    if (audio) {     
+    if (audio) {  
+        audio.currentTime = 0
         audio.play();   
     }
 
